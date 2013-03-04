@@ -1,0 +1,17 @@
+body{
+	/*background: #2b3d6b;*/
+}
+.dashboard{
+	background:;
+	border-spacing: 0;
+}
+.dashboard td{
+	border: none;
+	border-collapse: collapse;
+	width: 100px;
+	height: 100px;
+	background: #365d98;
+
+	/*temp remind*/
+	outline: 1px dashed #accded;
+}

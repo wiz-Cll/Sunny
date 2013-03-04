@@ -1,0 +1,13 @@
+CACHE MANIFEST 
+ CACHE:
+ index.html 
+ sunny.css 
+ frame.js 
+
+
+#NETWORK:
+#search.php
+#login.php
+
+#FALLBACK:
+#/api offline.html
