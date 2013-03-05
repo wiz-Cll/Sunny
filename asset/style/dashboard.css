@@ -1,5 +1,5 @@
 body{
-	/*background: #2b3d6b;*/
+	background: #2b3d6b;
 }
 .dashboard{
 	background:;
@@ -13,5 +13,5 @@ body{
 	background: #365d98;
 
 	/*temp remind*/
-	outline: 1px dashed #accded;
+	outline: 1px solid #accded;
 }

@@ -11,3 +11,7 @@ function isiDevice( userAgent ){
 function checkBrowser(){
 	
 }
+
+window.onload = function(){
+	console.log('script works.');
+}

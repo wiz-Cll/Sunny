@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# version 0.0241
+ CACHE:
+ index.html
+ ./asset/style/sunny.css 
+ ./asset/script/frame.js 
+
+ dashboard.html
+ ./asset/style/dashboard.css 
+ 
+
+
+#NETWORK:appcache
+#search.php
+#login.php
+
+#FALLBACK:
+#/api offline.html

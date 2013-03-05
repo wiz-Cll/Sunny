@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="sunny.manifest">
+<html lang="en" manifest="sunny.appcache">
 	<head>
 		<title>Sunny - 你若安好，便是晴天</title>
 		<meta charset="utf-8"/>
@@ -12,13 +12,13 @@
 		<!-- 添加到桌面后，避免高光的设置 -->
 		<!-- 可针对不同设备分别设置多个图标，用 size="72x72"   size="114*114" 来区分 -->
 		<link rel="apple-touch-icon-precomposed" href="icon.png" />
-		<link rel="stylesheet" href="sunny.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="asset/style/sunny.css" type="text/css" media="all" />
 		<!-- 所要做的事情，检测设备类型：电脑上显示介绍页面，手机pad上显示主屏，或者留下切换到介绍的按钮 -->
 		<!-- 添加到桌面的工作已经由apple和上面的meta和link完成 -->
 		<!-- 然后要做的就是：判断用户是从已经添加达桌面的icon来到当前页面，然后后加载天气信息 -->
 		<!-- 那么，离线的要素怎么添加到里面呢··· -->
 		<!--  -->
-		<script></script>
+		<script src="asset/script/frame.js"></script>
 	</head>
 	<body>
 		<header>Header 标记头部区域的内容</header>
@@ -27,7 +27,7 @@
 				代表一个部分，一个篇章
 				<article>标记一个文章</article>
 			</section>
-			<aside>代表侧边栏</aside>
+			<aside>如何在updateready后更新缓存  代表侧边栏</aside>
 		</div>
 		<footer>Footer 标记脚部的区域</footer>
 	</body>
