@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
-	<head manifest="sunny.appcache">
+	<!-- <head manifest="sunny.appcache"> -->
+	<head>
 		<title>Your Dashboard</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="asset/style/dashboard.css" media="all" />
 		<script>
-
+			function initDashboard( dbObjArr ){
+				var htmlStr = '';
+				var dblen = dbObjArr.length;
+				for( var i = 0; i < dblen; i++)
+					
+			}
 		</script>
 	</head>
 	<body>
@@ -33,6 +39,15 @@
 				<td colspan="2"></td>
 				<td></td>
 				<td colspan="2"></td>
+			</tr>
+			<tr style="visibility: hidden;">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
 			</tr>
 		</table>
 	</body>

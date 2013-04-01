@@ -1,7 +1,8 @@
 body{
-	background: #2b3d6b;
+	/*background: #2b3d6b;*/
 }
 .dashboard{
+	border-collapse: collapse;
 	background:;
 	border-spacing: 0;
 }
