@@ -2,6 +2,7 @@
 <html>
 <!-- <html lang="en" manifest="sunny.appcache"> -->
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<title>Sunny - 你若安好，便是晴天</title>
 		<meta charset="utf-8"/>
 		<!-- 开启applemobleapp， 应用全屏 -->
@@ -19,17 +20,25 @@
 		<!-- 然后要做的就是：判断用户是从已经添加达桌面的icon来到当前页面，然后后加载天气信息 -->
 		<!-- 那么，离线的要素怎么添加到里面呢··· -->
 		<!--  -->
+		<script src="asset/script/jquery.js"></script>
+		<script src="hammer.js/dist/jquery.hammer.js"></script>
 		<script src="asset/script/frame.js"></script>
 	</head>
 	<body>
-		<header>Header 标记头部区域的内容</header>
-		<div id="container">
-			<section>
-				代表一个部分，一个篇章
-				<article>标记一个文章</article>
-			</section>
-			<aside>如何在updateready后更新缓存  代表侧边栏</aside>
-		</div>
-		<footer>Footer 标记脚部的区域</footer>
+		<!-- <header></header> -->
+		<section>
+			<div id="oWeather"></div>
+			<div class="hr"></div>
+			<article>标记一个文章</article>
+		</section>
+		<aside>
+			<p>侧边栏</p>
+			<ul>
+				<li>列表项1</li>
+				<li>列表项12</li>
+				<li>列表项123</li>
+				<li>列表项1234</li>
+			</ul>
+		</aside>
 	</body>
 </html>
