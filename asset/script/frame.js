@@ -13,17 +13,22 @@ function checkBrowser(){
 }
 
 $(document).ready(function(){
+	$(document).hammer().on('drag', function( event ){
+		event.gesture.preventDefault();
+	})
+
 	var $section = $('section');
 	var article = $('article').get(0);
 
 	var sCoordinate = {}, eCoordinate = {};
 
 	$section.hammer().on('dragstart', function( event ){
-		event.gesture.preventDefault()
+		// event.gesture.preventDefault()
 		sCoordinate.x = event.gesture.deltaX;
 		sCoordinate.y = event.gesture.deltaY;
 	});
 	
+	// run time, mains what
 	$section.hammer().on('dragend', function( event ){
 		eCoordinate.x = event.gesture.deltaX;
 		eCoordinate.y = event.gesture.deltaY;
@@ -45,8 +50,13 @@ $(document).ready(function(){
 		 }
 	})
 
-	$.get()
-	
+	$section.hammer().on('dragup', function(){
+		article.innerHTML += 'drag driection is up';
+		$section.hammer().off('dragup');
+		$section.hammer().on('dragleft', function(){
+			article.innerHTML += 'changed direction to left';
+		})
+	})
 });
 
 window.onload = function(){
