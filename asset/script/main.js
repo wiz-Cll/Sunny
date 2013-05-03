@@ -83,6 +83,10 @@ define(function( require, exports, module){
 					switch( tar.attr('id') ){
 						case 'refrash':
 							// alert('gonna get new weather info...');
+							var oldVal = tar.css('opacity');
+							tar.css('opacity','1');
+							setTimeout(function(){ tar.css('opacity', oldVal ); }, 100);
+							
 							Get.weather();
 							break;
 						default:
