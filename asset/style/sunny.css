@@ -41,13 +41,19 @@ aside{
 	background: #f5f5f5;
 }
 
-#trans-obj{
-	width: 120px;
-	height: 100px;
-	-webkit-transition: all 100ms ease;
-	background: #accded;
+.btn{
+	display: inline-block;
+	padding: 0.25em 0.4em;
+	font-size: 1.5em;
+	color: white;
+	background: #d0349a;
+	border-radius: 0.15em;
+	cursor: pointer;
 }
 
-.trans-class{
-	-webkit-transform: translateX(40px);
+#refrash{
+	position: absolute;
+	top: 2em;
+	right: 2em;
+	box-shadow: 0 0 0.15em rgba(0,0,0,0.45);
 }

@@ -1,10 +1,21 @@
 define(function( require, exports, module){
-	var getWeather = require('./Get');
-	var Show = require('./Show');
+	var Get = require('./Get');
+	// var Show = require('./Show');
 
-	getWeather.atO( '100010');
 
-	$(document).ready(function(){
+
+	$(document).ready( function(){
+		// 主要的触摸事件的绑定
+		uiInit();
+		// 用户操作事件的绑定
+		bindUserOp();
+
+	});
+
+
+
+
+	function uiInit(){
 		$(document).hammer().on('drag', function( event ){
 			event.gesture.preventDefault();
 		})
@@ -49,6 +60,40 @@ define(function( require, exports, module){
 				article.innerHTML += 'changed direction to left';
 			})
 		})
-	});
+	}
+
+	function bindUserOp(){
+		var htSection = Hammer( $('section') );
+
+		htSection.on('tap', function(e){
+
+
+			var $target = $(e.target);
+
+			if( $target.hasClass('disable') ){
+				// do nothing
+			}
+			else{
+				btnMoves( $target );
+			}
+			e.gesture.stopPropagation();
+
+			function btnMoves( tar ){
+				if( tar.hasClass('btn') ){
+					switch( tar.attr('id') ){
+						case 'refrash':
+							// alert('gonna get new weather info...');
+							Get.weather();
+							break;
+						default:
+							alert('you taped a btn, but i don\'t know what you want me do');
+							break;
+					}
+				}
+				
+				return false;
+			}
+		})
+	}
 })
 	

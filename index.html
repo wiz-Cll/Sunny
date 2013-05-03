@@ -27,29 +27,27 @@
 			    debug: true,
 			    plugins: ['nocache']
 			})
-				seajs.use('./asset/script/frame');
+				seajs.use('./asset/script/main');
 		</script>
 	</head>
 	<body>
 		<!-- <header></header> -->
 		<section>
-			<div id="oWeather">
-				<h2>
-			</div>
-			<div class="hr"></div>
-			<article>标记一个文章</article>
+			<span class="btn" id="refrash">刷新</span>
+			<span class="btn" >btn1</span>
+			<span class="btn" >btn2</span>
 		</section>
 		<aside>
-			<p>侧边栏</p>
-			<ul>
-				<li>列表项1</li>
-				<li>列表项12</li>
-				<li>列表项123</li>
-				<li>列表项1234</li>
-			</ul>
-			<div id="trans-obj">
-			</div>
-			<span class="btn">点击变形</span>
+			<!-- 暂时只做个别城市的 -->
+			<select name="" id="s-city">
+				<option value="">请选择城市</option>
+				<option value="101010100">北京</option>
+				<option value="101120201">青岛</option>
+				<option value="101120801">泰安</option>
+				<option value="101120101">济南</option>
+				<option value="101190101">南京</option>
+				<option value="101210101">杭州</option>
+			</select>
 		</aside>
 	</body>
 </html>
