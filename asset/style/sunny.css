@@ -58,6 +58,9 @@ aside{
 	box-shadow: 0 0 0.15em rgba(0,0,0,0.45);
 	opacity: 0.5;
 }
+.btn.disabled{
+	background: ##3899d0;
+}
 /*#refrash:hover {
 	opacity: 1;
 }*/

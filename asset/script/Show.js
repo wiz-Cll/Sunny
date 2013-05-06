@@ -38,6 +38,18 @@ define( function(require, exports, module){
 		}
 	}
 
+	function netWorkListener(){
+		window.addEventListener( 'online',function(){
+			
+		});
+		window.addEventListener( 'offline',function(){
+			
+		});
+
+		function reactToNet(){
+			var netState = navigator.onLine;
+		}
+	}
 
 	exports.realTime = showRealTime;
 	exports.sixDays = showSixDays;
