@@ -38,18 +38,15 @@ define( function(require, exports, module){
 		}
 	}
 
-	function netWorkListener(){
-		window.addEventListener( 'online',function(){
-			
-		});
-		window.addEventListener( 'offline',function(){
-			
-		});
+	// 由于极其不稳定和支持不全，暂时放弃
+	// function netWorkListener(){
+	// 	window.addEventListener( 'online',reactToNet);
+	// 	window.addEventListener( 'offline',reactToNet);
 
-		function reactToNet(){
-			var netState = navigator.onLine;
-		}
-	}
+	// 	function reactToNet(){
+	// 		var netState = navigator.onLine;
+	// 	}
+	// }
 
 	exports.realTime = showRealTime;
 	exports.sixDays = showSixDays;

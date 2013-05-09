@@ -4,7 +4,7 @@ body{
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	font-size: 1em;
+	font-size: 200%;
 	overflow: hidden;
 }
 
@@ -22,7 +22,7 @@ section{
 }
 
 .activeAside{
-	left: 200px;
+	left: 395px;
 }
 
 .hr{
@@ -44,7 +44,7 @@ aside{
 .btn{
 	display: inline-block;
 	padding: 0.25em 0.4em;
-	font-size: 1.5em;
+	font-size: 1em;
 	color: white;
 	background: #d0349a;
 	border-radius: 0.15em;
@@ -56,10 +56,14 @@ aside{
 	top: 2em;
 	right: 2em;
 	box-shadow: 0 0 0.15em rgba(0,0,0,0.45);
-	opacity: 0.5;
+	opacity: 0.8;
 }
 .btn.disabled{
 	background: ##3899d0;
+}
+
+#s-city{
+	font-size: 1em;
 }
 /*#refrash:hover {
 	opacity: 1;

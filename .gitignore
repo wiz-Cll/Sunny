@@ -6,3 +6,9 @@ asset/.DS_Store
 asset/.DS_Store
 
 .DS_Store
+
+.idea/.name
+
+*.iml
+
+*.xml

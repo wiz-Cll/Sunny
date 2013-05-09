@@ -5,7 +5,29 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="" media="all" />
 		<script>
+			window.onload = function(){
 
+				console.log( 'initinal net state is ' + navigator.onLine);
+				
+				window.addEventListener('online', function(){
+					console.log( 'now is ' + navigator.onLine + ' , and this is detected by window');
+				},false)
+				window.addEventListener('offline', function(){
+					console.log( 'now is ' + navigator.onLine + ' , and this is detected by window');
+				},false)
+				document.body.addEventListener('online', function(){
+					console.log( 'now is ' + navigator.onLine + ' , and this is detected by body');
+				},false)
+				document.body.addEventListener('online', function(){
+					console.log( 'now is ' + navigator.onLine + ' , and this is detected by body');
+				},false)
+				document.addEventListener('online', function(){
+					console.log( 'now is ' + navigator.onLine + ' , and this is detected by document');
+				},false)
+				document.addEventListener('online', function(){
+					console.log( 'now is ' + navigator.onLine + ' , and this is detected by document');
+				},false)
+			}
 		</script>
 		<style>
 			#destination{
