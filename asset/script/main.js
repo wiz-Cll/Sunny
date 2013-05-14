@@ -9,6 +9,12 @@ define(function( require, exports, module){
 		uiInit();
 		// 用户操作事件的绑定
 		bindUserOp();
+		// $('body').html( JSON.stringify( document.body) );
+		$('section').css('height', $(document).height()+'px' );
+		alert( $(document).height() );
+
+		$('body').show();
+		// alert( $('#lb').off)
 
 	});
 
