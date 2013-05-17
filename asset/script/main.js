@@ -11,7 +11,7 @@ define(function( require, exports, module){
 		bindUserOp();
 		// $('body').html( JSON.stringify( document.body) );
 		$('section').css('height', $(document).height()+'px' );
-		alert( $(document).height() );
+		// alert( $(document).height() );
 
 		$('body').show();
 		// alert( $('#lb').off)

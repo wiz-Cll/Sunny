@@ -20,24 +20,25 @@ define( function(require, exports, module){
 			// if( getSixDays.gotDate )
 		}
 		catch( err ){
-			getSixDays();
+			// getSixDays();
 		}
 	}
 
 	function getRealTime( cityId ){
 		var param = {
-			cityId: cityId,
+			cityid: '101010100',
 			senttime: (new Date()).valueOf()
 		}
 		$.get( config.realTimeUrl, param, function( data, status){
-			ajaxHandler( data, status, Show.realTime , failF );
+			console.log( data );
+			// ajaxHandler( data, status, Show.realTime , failF );
 			return false;
 		})
 	}
 
 	function getSixDays( cityId ){
 		var param = {
-			cityId: cityId,
+			cityid: cityId,
 			senttime: (new Date()).valueOf()
 		}
 		$.get( config.sizDaysUrl, param, function( data, status){
