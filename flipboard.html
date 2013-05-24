@@ -2,70 +2,126 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.5" />
 	<script src="asset/script/jquery.js"></script>
 	<script src="hammer/jquery.hammer.js"></script>
 	<title>flipboard效果实现</title>
 	<style>
+		html{
+			height: 100%;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background: #ef7f7f;
+		}
 		article{
+			position: absolute;
 			width: 100%;
-			height: 300px;
-			margin: 300px 0 0 0;
-			background: url(./asset/img/weather_real.jpg) 50% 50%;
+			height: 50%;
 			-webkit-transform-origin: 50% 0;
-			/*-webkit-backface-visibility: hidden;*/
+			
+		}
+		article:nth-child(4n+1){
+			top: 0;
+		}
+		article:nth-child(4n+2){
+			top: 50%;
+		}
+		article:nth-child(4n+3){
+			
+		}
+		article:nth-child(4n+4){
+			
+		}
+		section{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-position:  50% 50%;
+			background-repeat: no-repeat;
+			-webkit-transform: perspective(800px);
+			-webkit-backface-visibility: hidden;
+		}
+		article section:nth-child(1){
+			top: 0;
+		}
+		article section:nth-child(2){
+			top: 0;
+			-webkit-transform-origin: 50% 50%;
+			-webkit-transform: rotateX(180deg);
+		}
+
+		article:nth-child(1){
+
+		}
+		section:nth-child(2n){
+			top: 0;
 		}
 	</style>
 </head>
 <body>
 	<article>
+		<section></section>
+		<section></section>
+	</article>
+	<article>
+		<section></section>
+		<section></section>
 	</article>
 	<script>
+		// 现在的架构还需要修改一下
+		// 比如 dragend和drag的Yrange应该是不一样的, 向上drag一点就end也应该翻页
+		// 而一直drag的话  就应该drag很多才到头
+		// 总之,尽量达到flipboard的流畅度和手感
+		// 先有多page(翻页的逻辑  需要再增加)  再有动态载入  
+		// 动态的```有难度啊  数据加载  
 		$(document).hammer().on('drag', function( event ){
 			event.gesture.preventDefault();
 		});
 
 		var art = $('article');
-		var YRange = 400;
+		var YRange = 150;
+		var YDragRange = 300;
 		var sCoord = {};
 		var eCoord = {};
-		art.hammer().on('dragstart',function( e ){
+		var stID;
+		$(document).hammer().on('dragstart',function( e ){
 			sCoord.x = e.gesture.deltaX;
 			sCoord.y = e.gesture.deltaY;
 		});
-		art.hammer().on('drag',function( e ){
-			setTimeout(function(){
+		$(document).hammer().on('drag',function( e ){
+			// stID = setTimeout(function(){
 				snatchyChangeEndCoord(e);
 				changeTrans( sCoord, eCoord );
-			}, 100);
+			// }, 100);
 
 			function snatchyChangeEndCoord( e ){
 				eCoord.x = e.gesture.deltaX;
 				eCoord.y = e.gesture.deltaY;
-			}
+			} 
 			
 		});
-		art.hammer().on('dragend',function( e ){
+		$(document).hammer().on('dragend',function( e ){
 			eCoord.x = e.gesture.deltaX;
 			eCoord.y = e.gesture.deltaY;
-
+			clearTimeout( stID );
 			chkWhileEnd(sCoord, eCoord );
 		});
 
 		function changeTrans( sCrd, cCrd){
 			
-			var dvY = cCrd.y - sCrd.y;
+			var dvY = Math.abs( cCrd.y - sCrd.y );
 			var dvX = cCrd.x - sCrd.x;
 			if( Math.abs( dvX/dvY ) < 1 ){
-				if( dvY < 0 ){
-					if( dvY < YRange )
-					var tansDeg = -dvY/YRange * 180;
-					var transV = 'perspective(600px) rotateX(' + tansDeg + 'deg)';
-					// console.log( transV );
-					art.css('webkitTransform', transV);
-					// console.log( art.css('webkitTransform') );
+				if( dvY < YDragRange){
+					var transDeg = dvY/YDragRange * 180;
+					rotateAcDv( art, transDeg);
 				}
-				
+				else{
+					console.log('drag distance is already larger than YDragRange');
+				}
 			}
 		}
 
@@ -76,22 +132,36 @@
 			if( Math.abs( dvX/dvY ) < 1 ){
 				if( dvY < 0 ){
 					if( -dvY > YRange/2 ){
-						var transV = 'perspective(600px) rotateX(180deg)';
-						// console.log( transV );
-
+						var tansDeg = 180;
+						var transV = 'perspective(600px) rotateX(' + tansDeg + 'deg)';
 						art.css('webkitTransform', transV);
-						console.log( art.css('webkitTransform') );
 					}
 					else{
-						var transV = 'perspective(600px) rotateX(0deg)';
-						// console.log( transV );
+						var tansDeg = 0;
+						var transV = 'perspective(600px) rotateX(' + tansDeg + 'deg)';
 						art.css('webkitTransform', transV);
-						console.log( art.css('webkitTransform') );
 					}
 					
 				}
+				else if( dvY > 0 ){
+					if( dvY > YRange/2 ){
+						var tansDeg = 0;
+						var transV = 'perspective(600px) rotateX(' + tansDeg + 'deg)';
+						art.css('webkitTransform', transV);
+					}
+					else{
+						var tansDeg = 180;
+						var transV = 'perspective(600px) rotateX(' + tansDeg + 'deg)';
+						art.css('webkitTransform', transV);
+					}
+				}
 				
 			}
+		}
+
+		function rotateAcDv( $node, amount){
+			var transV = 'perspective(1000px) rotateX(' + amount + 'deg)'; 
+			$node.css('webkitTransform', transV);
 		}
 
 	</script>
