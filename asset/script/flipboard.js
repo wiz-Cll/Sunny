@@ -63,7 +63,7 @@ $(document).ready( function(){
 
 	function changeTrans( e ){
 		if( isBackOverDo(e) ){
-
+			console.log('is back over do while draging');
 		}
 		else{
 			var deltaY = e.gesture.deltaY;
@@ -85,7 +85,8 @@ $(document).ready( function(){
 		ele2trans.css('webkitTransition', 'all 200ms ease-out');
 		if( Math.abs( deltaX/deltaY ) < 1 ){
 			if( isBackOverDo(e) ){
-				gotoTerminalByClass();
+				console.log('is back over do when it comes to an end');
+				gotoOriginByClass();
 			}
 			else{
 				if( Math.abs(deltaY) > YEndRange ){
@@ -130,7 +131,7 @@ $(document).ready( function(){
 	 * 在这里我们设定article的类名,up代表可以向上的节点   down代表可以向下的节点(当然会发生改变的)
 	 * 如果一个用户向下drag,这是我们操作的对象应该是article.down的索引为-1的节点,
 	 * 而这个用户手贱的改变了方向,向上了,我们可以通过getEle2Trans和非null获得正确的ele2trans
-	 * 而在结束的时候,就要看起点和终点了,如果操作的元素是down,而最终的y坐标却大于始Y坐标 那就说明是isBackOverdo
+	 * 而在结束的时候,就要看起点和终点了,如果操作的元素是down,而最终的y坐标却大于始Y坐标 那就说明是is Back Overdo
 	 * 
 	 */
 	function isBackOverDo( e ){
@@ -167,7 +168,7 @@ $(document).ready( function(){
 		rotateAcDv(180);
 		var oldzindex = ele2trans.attr('data-oldzindex');
 		ele2trans.css('zIndex', (10000 - oldzindex).toString() );
-		
+	
 		// ele2trans.toggleClass('down up');
 		if( ele2trans.hasClass('up') ){
 			ele2trans.attr('class','down');
